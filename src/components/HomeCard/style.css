@@ -1,0 +1,11 @@
+.home-image {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+
+.home-title {
+  display: flex;
+  justify-content: center;
+}

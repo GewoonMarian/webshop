@@ -10,8 +10,8 @@ export default function ShopPage() {
     const response = await axios.get(
       "http://localhost:4000/products?limit=5&offset=0"
     );
-    console.log("first", response.data.product);
-    setProducts(response.data.product);
+    console.log("first", response.data);
+    setProducts(response.data);
   }
 
   useEffect(() => {
