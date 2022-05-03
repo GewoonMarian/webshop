@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductsCard from "../components/ProductCard";
 
+// ?limit=5&offset=0
 export default function ShopPage() {
   const [products, setProducts] = useState([]);
 
@@ -9,14 +10,15 @@ export default function ShopPage() {
     const response = await axios.get(
       "http://localhost:4000/products?limit=5&offset=0"
     );
-
-    setProducts(response.data.rows);
+    console.log("first", response.data.product);
+    setProducts(response.data.product);
   }
 
   useEffect(() => {
     getProducts();
   }, []);
   // console.log(products);
+
   return (
     <div>
       <div className="card-container">
