@@ -1,0 +1,26 @@
+img {
+  border: 1px solid rgb(195, 138, 138);
+  border-radius: 4px;
+  padding: 50px;
+  width: 200px;
+  align-items: center;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(8, 176, 33, 0.5);
+}
+
+.cards {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+.card {
+  width: 500px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  justify-content: flex-end;
+}
