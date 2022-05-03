@@ -6,11 +6,10 @@ export default function ShopPage() {
   const [products, setProducts] = useState([]);
 
   async function getProducts() {
-    const response = await axios.get(
-      "http://localhost:4000/products?limit=5&offset=0"
-    );
+    const response = await axios.get("http://localhost:4000/products");
+    console.log("first", response.data);
 
-    setProducts(response.data.rows);
+    setProducts(response.data);
   }
 
   useEffect(() => {

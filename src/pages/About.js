@@ -13,7 +13,7 @@ function DetailsPage() {
           `http://localhost:4000/products/${params.id}`
         );
         const data = response.data;
-        // console.log(data);
+        console.log(data);
         setProduct(data);
       } catch (exception) {
         console.log(exception.message);
