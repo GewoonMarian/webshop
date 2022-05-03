@@ -7,10 +7,15 @@ import { MdFavorite } from "react-icons/md";
 export default function NavBar() {
   return (
     <div className="navbar-container">
-      <h1>MarLoes</h1>
       <div className="left-side">
+        <div>
+          <span className="marloes">MarLoes</span>
+          <span className="shop">Shop</span>
+        </div>
+
         <h3>
           <NavLink
+            className="link-form"
             to="/"
             style={({ isActive }) =>
               isActive ? { color: "white" } : undefined
@@ -19,6 +24,7 @@ export default function NavBar() {
             Home
           </NavLink>
           <NavLink
+            className="link-form"
             to="/Shop"
             style={({ isActive }) =>
               isActive ? { color: "white" } : undefined
@@ -27,6 +33,7 @@ export default function NavBar() {
             Shop
           </NavLink>
           <NavLink
+            className="link-form"
             to="/details/:id"
             style={({ isActive }) =>
               isActive ? { color: "white" } : undefined
@@ -35,23 +42,25 @@ export default function NavBar() {
             About
           </NavLink>
         </h3>
+        <input type="text" claseName="search-bar" />
       </div>
+
       <div className="right-bar">
         <h1>
-          <NavLink to="/login">
+          <NavLink className="link-form" to="/login">
             <FcBusinessman />
           </NavLink>
         </h1>
         <div>
           <h1>
-            <NavLink to="/ShoppingCart">
+            <NavLink className="link-form" to="/ShoppingCart">
               <GrCart />
             </NavLink>
           </h1>
         </div>
         <div>
           <h1>
-            <NavLink to="/Favorites">
+            <NavLink className="link-form" to="/Favorites">
               <MdFavorite />
             </NavLink>
           </h1>

@@ -3,24 +3,54 @@
   height: 60px;
   background-color: #8568ff;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
-.right-bar {
+.marloes {
+  font-size: 34px;
+  color: white;
+}
+
+.shop {
+  font-size: 34px;
+  color: black;
+}
+
+/* .right-bar {
   display: flex;
   justify-content: flex-end;
   justify-content: space-between;
-}
-.left-side {
-  margin-right: auto;
-  margin-left: 100px;
+} */
+.right-bar {
+  height: 40px;
+  min-width: 250px;
+  margin-right: 20px;
+
   display: flex;
-  justify-content: center;
-  font-family: Lato;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0em;
-  text-align: left;
+  align-items: center;
+  justify-content: left;
+}
+
+.left-side {
+  height: 40px;
+  min-width: 600px;
+  flex-grow: 1;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar {
+  border-radius: 8px;
+  height: 35px;
+  width: 270px;
+  border: 2px solid white;
+  padding-left: 25px;
+}
+
+.link-form {
+  margin-left: 10px;
+  margin-right: 10px;
 }
