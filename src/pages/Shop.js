@@ -3,11 +3,14 @@ import { useEffect, useState } from "react";
 import ProductsCard from "../components/ProductCard";
 
 export default function ShopPage() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
 
   async function getProducts() {
-    const response = await axios.get("http://localhost:4000/products");
-    setProducts(response.data);
+    const response = await axios.get(
+      "http://localhost:4000/products?limit=5&offset=0"
+    );
+
+    setProducts(response.data.rows);
   }
 
   useEffect(() => {

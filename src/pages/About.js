@@ -29,6 +29,7 @@ function DetailsPage() {
         <div className="photo">
           <img src={product.mainImage} alt="products" />
         </div>
+        <button onClick={() => console.log("Add to cart!")}>Add To Cart</button>
         <div className="description">
           <h2>{product.title}</h2>
           <h1>{product.price}</h1>

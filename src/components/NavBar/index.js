@@ -3,29 +3,59 @@ import "./style.css";
 import { FcBusinessman } from "react-icons/fc";
 import { GrCart } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
-
+import { MdFavorite } from "react-icons/md";
 export default function NavBar() {
   return (
     <div className="navbar-container">
       <h1>MarLoes</h1>
-      <div>
+      <div className="left-side">
         <h3>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/Shop">Shop</NavLink>
-          <NavLink to="/details/:id">About</NavLink>
+          <NavLink
+            to="/"
+            style={({ isActive }) =>
+              isActive ? { color: "white" } : undefined
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/Shop"
+            style={({ isActive }) =>
+              isActive ? { color: "white" } : undefined
+            }
+          >
+            Shop
+          </NavLink>
+          <NavLink
+            to="/details/:id"
+            style={({ isActive }) =>
+              isActive ? { color: "white" } : undefined
+            }
+          >
+            About
+          </NavLink>
         </h3>
       </div>
-      <div className="login">
+      <div className="right-bar">
         <h1>
-          <NavLink to="/login"></NavLink>
-          <FcBusinessman />
+          <NavLink to="/login">
+            <FcBusinessman />
+          </NavLink>
         </h1>
-      </div>
-      <div>
-        <h1>
-          <NavLink to="/shoppingCart"></NavLink>
-          <GrCart />
-        </h1>
+        <div>
+          <h1>
+            <NavLink to="/ShoppingCart">
+              <GrCart />
+            </NavLink>
+          </h1>
+        </div>
+        <div>
+          <h1>
+            <NavLink to="/Favorites">
+              <MdFavorite />
+            </NavLink>
+          </h1>
+        </div>
       </div>
     </div>
   );

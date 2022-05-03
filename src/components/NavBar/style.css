@@ -6,7 +6,21 @@
   justify-content: space-between;
 }
 
-.login {
+.right-bar {
   display: flex;
   justify-content: flex-end;
+  justify-content: space-between;
+}
+.left-side {
+  margin-right: auto;
+  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
 }
