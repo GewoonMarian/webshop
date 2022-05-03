@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function DetailsPage() {
+function DetailsPage(props) {
+  const { onAdd, onRemove } = props;
   const params = useParams();
   const [product, setProduct] = useState(null);
 
@@ -29,10 +30,11 @@ function DetailsPage() {
         <div className="photo">
           <img src={product.mainImage} alt="products" />
         </div>
-        <button onClick={() => console.log("Add to cart!")}>Add To Cart</button>
+        <button onClick={() => onAdd(product)}>Add To Cart</button>
+
         <div className="description">
           <h2>{product.title}</h2>
-          <h1>{product.price}</h1>
+          <h1>€{product.price}</h1>
           <p>{product.description}</p>
         </div>
       </div>
