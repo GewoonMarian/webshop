@@ -47,6 +47,46 @@ function App() {
     }
   };
 
+  // Wish list..Add and Remove
+  const [favoriteItems, setFavoriteItems] = useState([]);
+  const onWish = (product) => {
+    const exist = favoriteItems.find((productWishList) => {
+      return productWishList.id === product.id;
+    });
+
+    if (exist) {
+      setFavoriteItems(
+        favoriteItems.map((productWishList) =>
+          productWishList.id === product.id
+            ? { ...exist, qty: exist.qty + 1 }
+            : productWishList
+        )
+      );
+    } else {
+      setFavoriteItems([...favoriteItems, { ...product, qty: 1 }]);
+    }
+  };
+  const unWish = (product) => {
+    const exist = favoriteItems.find(
+      (productWishList) => productWishList.id === product.id
+    );
+    if (exist.qty === 1) {
+      setFavoriteItems(
+        favoriteItems.filter(
+          (productWishList) => productWishList.id !== product.id
+        )
+      );
+    } else {
+      setFavoriteItems(
+        favoriteItems.map((productWishList) =>
+          productWishList.id === product.id
+            ? { ...exist, qty: exist.qty - 1 }
+            : product
+        )
+      );
+    }
+  };
+
   return (
     <div className="App">
       <NavBar />
@@ -54,7 +94,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Shop" element={<Shop onAdd={onAdd} />} />
-        <Route path="/details/:id" element={<About onAdd={onAdd} />} />
+        <Route
+          path="/details/:id"
+          element={
+            <About
+              onAdd={onAdd}
+              onRemove={onRemove}
+              onWish={onWish}
+              unWish={unWish}
+            />
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route
           path="/ShoppingCart"
@@ -66,7 +116,16 @@ function App() {
             />
           }
         />
-        <Route path="/Favorites" element={<Favorites />} />
+        <Route
+          path="/Favorites"
+          element={
+            <Favorites
+              unWish={unWish}
+              setFavoriteItems={setFavoriteItems}
+              favoriteItems={favoriteItems}
+            />
+          }
+        />
       </Routes>
     </div>
   );

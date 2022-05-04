@@ -22,7 +22,7 @@ export default function ShopPage() {
   return (
     <div>
       <div className="card-container">
-        <h4 className="h4-font">Categories</h4>
+        <h3 className="h4-font">All Products available for you!</h3>
       </div>
       <div>
         {products

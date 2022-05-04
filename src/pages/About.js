@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 function DetailsPage(props) {
   const { onAdd, onRemove } = props;
+  const { onWish, unWish } = props;
   const params = useParams();
   const [product, setProduct] = useState(null);
 
@@ -28,9 +29,23 @@ function DetailsPage(props) {
       <div>
         <h4 className="productTitle">{product.title}</h4>
         <div className="photo">
-          <img src={product.mainImage} alt="products" />
+          <h3>
+            <img
+              src={product.mainImage}
+              style={{ height: "200px", width: "200px" }}
+              alt="products"
+            />
+          </h3>
         </div>
-        <button onClick={() => onAdd(product)}>Add To Cart</button>
+        <div>
+          <button onClick={() => onAdd(product)}>Add To Cart</button>
+          <button onClick={() => onRemove(product)}>Remove from Cart</button>
+        </div>
+
+        <div>
+          <button onClick={() => onWish(product)}>Add to WishList</button>
+          <button onClick={() => unWish(product)}>Remove from WishList</button>
+        </div>
 
         <div className="description">
           <h2>{product.title}</h2>
