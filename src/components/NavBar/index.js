@@ -42,7 +42,7 @@ export default function NavBar() {
             About
           </NavLink>
         </h3>
-        <input type="text" claseName="search-bar" />
+        <input type="text" className="search-bar" />
       </div>
 
       <div className="right-bar">
