@@ -10,7 +10,7 @@ export default function ProductsCard(props) {
           <img src={props.imgUrl} alt="" width="200px" />
         </div>
         <NavLink to={`/details/${props.id}`}>
-          <button>
+          <button style={{ color: "white", background: "green" }}>
             <span>€{props.price}</span>
             <br />
             <span>Buy Now</span>

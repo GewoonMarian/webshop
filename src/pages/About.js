@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import "./About.css";
 function DetailsPage(props) {
   const { onAdd, onRemove } = props;
   const { onWish, unWish } = props;
@@ -25,51 +25,54 @@ function DetailsPage(props) {
 
   if (product) {
     return (
-      <div>
-        <h4 className="productTitle">{product.title}</h4>
-        <div className="photo">
-          <h3>
-            <img
-              src={product.mainImage}
-              style={{ height: "200px", width: "200px" }}
-              alt="products"
-            />
-          </h3>
-        </div>
-        <div>
-          <button
-            style={{ color: "white", background: "green" }}
-            onClick={() => onAdd(product)}
-          >
-            <strong>Add To Cart</strong>
-          </button>
-          <button
-            style={{ color: "white", background: "red" }}
-            onClick={() => onRemove(product)}
-          >
-            <strong>Remove from Cart</strong>
-          </button>
-        </div>
+      <div className="about-container">
+        <div className="about-prod">
+          <div>
+            <h2 className="productTitle">{product.title}</h2>
+            <div className="photo">
+              <h3>
+                <img
+                  src={product.mainImage}
+                  style={{ height: "200px", width: "200px" }}
+                  alt="products"
+                />
+              </h3>
+            </div>
+            <div>
+              <button
+                style={{ color: "white", background: "green" }}
+                onClick={() => onAdd(product)}
+              >
+                <strong>Add To Cart</strong>
+              </button>
+              <button
+                style={{ color: "white", background: "red" }}
+                onClick={() => onRemove(product)}
+              >
+                <strong>Remove from Cart</strong>
+              </button>
+            </div>
 
-        <div>
-          <button
-            style={{ color: "white", background: "green" }}
-            onClick={() => onWish(product)}
-          >
-            <strong>Add to WishList</strong>
-          </button>
-          <button
-            style={{ color: "white", background: "red" }}
-            onClick={() => unWish(product)}
-          >
-            <strong>Remove from WishList</strong>
-          </button>
-        </div>
+            <div>
+              <button
+                style={{ color: "white", background: "green" }}
+                onClick={() => onWish(product)}
+              >
+                <strong>Add to WishList</strong>
+              </button>
+              <button
+                style={{ color: "white", background: "red" }}
+                onClick={() => unWish(product)}
+              >
+                <strong>Remove from WishList</strong>
+              </button>
+            </div>
 
-        <div className="description">
-          <h2>{product.title}</h2>
-          <h1>€{product.price}</h1>
-          <p>{product.description}</p>
+            <div className="description">
+              <h1>€{product.price}</h1>
+              <h4>{product.description}</h4>
+            </div>
+          </div>
         </div>
       </div>
     );
