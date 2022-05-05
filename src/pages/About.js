@@ -7,6 +7,8 @@ function DetailsPage(props) {
   const { onWish, unWish } = props;
   const params = useParams();
   const [product, setProduct] = useState(null);
+  const [comment, setComment] = useState([]);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -22,6 +24,11 @@ function DetailsPage(props) {
     };
     getData();
   }, [params.id]);
+
+  const submitComment = () => {
+    setComment([...comment, input]);
+    setInput(" ");
+  };
 
   if (product) {
     return (
@@ -71,6 +78,19 @@ function DetailsPage(props) {
           <h1>€{product.price}</h1>
           <p>{product.description}</p>
         </div>
+        <p>:: Leave your review :: {comment.length} ::</p>
+        <ul>
+          {comment.map((c) => (
+            <li>{c}</li>
+          ))}
+        </ul>
+
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button onClick={submitComment}>Leave your comment</button>
       </div>
     );
   } else {
