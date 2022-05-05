@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function SignUpForm() {
   const [name, setName] = useState("");
@@ -34,21 +35,27 @@ function SignUpForm() {
   };
   // below function will be called when user
   // click on submit button .
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (password != confPassword) {
       console.log("password Not Match");
-    } else {
-      console.log(
-        'A form was submitted with Name :"' +
-          name +
-          '" ,Age :"' +
-          age +
-          '" and Email :"' +
-          email +
-          '"'
-      );
+      return;
     }
-    e.preventDefault();
+
+    console.log("submitting", { name, email, password });
+
+    try {
+      const response = await axios.post("http://localhost:4000/users/signup", {
+        name,
+        email,
+        password,
+      });
+
+      console.log(response.data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -105,17 +112,6 @@ function SignUpForm() {
             }}
           />
           <br />
-          <label>Age:</label>
-          <br />
-          <input
-            type="text"
-            value={age}
-            required
-            onChange={(e) => {
-              handleAgeChange(e);
-            }}
-          />
-          <br />
           <input type="submit" value="Submit" />
         </form>
       </header>
@@ -124,46 +120,3 @@ function SignUpForm() {
 }
 
 export default SignUpForm;
-
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-
-// export default function SignUp() {
-//   const [newUser, setNewUser] = useState([]);
-
-//   async function addUser() {
-//     const response = await axios.post("http://localhost:4000/users/signup", {
-//       name: "Marvin",
-//       email: "m@a",
-//       password: 123,
-//     });
-
-//     console.log(response);
-//     setNewUser(response);
-//   }
-//   useEffect(() => {
-//     addUser();
-//   }, []);
-
-//   return (
-//     <div>
-//       <button onClick={SignUp}>Create your account</button>
-//     </div>
-//   );
-// }
-
-// // export default function ShopPage() {
-// //     const [products, setProducts] = useState([]);
-
-// //     async function getProducts() {
-// //       const response = await axios.get(
-// //         "http://localhost:4000/products?limit=5&offset=0"
-// //       );
-// //       console.log("first", response.data);
-// //       setProducts(response.data);
-// //     }
-
-// //     useEffect(() => {
-// //       getProducts();
-// //     }, []);
-// //     // console.log(products);

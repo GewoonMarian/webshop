@@ -9,6 +9,7 @@ export default function ShopPage() {
   const [productsPerPage, setProductsPerPage] = useState(5);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
 
   async function getProducts() {
     setLoading(true);
@@ -31,23 +32,33 @@ export default function ShopPage() {
       {loading && <div>...loading</div>}
       <div>
         {!loading && products.length !== 0 ? (
-          products.map((p) => {
-            if (!p.title) return null;
-            return (
-              <ProductsCard
-                key={p.id}
-                title={p.title}
-                price={p.price}
-                rating={p.rating}
-                imgUrl={p.mainImage}
-                description={p.description}
-                id={p.id}
-              />
-            );
-          })
+          products
+            .filter((product) => {
+              if (!product.title) return null;
+              return product.title.toLowerCase().includes(search.toLowerCase());
+            })
+            .map((p) => {
+              if (!p.title) return null;
+              return (
+                <ProductsCard
+                  key={p.id}
+                  title={p.title}
+                  price={p.price}
+                  rating={p.rating}
+                  imgUrl={p.mainImage}
+                  description={p.description}
+                  id={p.id}
+                />
+              );
+            })
         ) : (
           <div>No more items</div>
         )}
+        <input
+          type="text"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        ></input>
         <div>
           <Pagination
             offset={offset}
