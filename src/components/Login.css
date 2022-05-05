@@ -1,0 +1,6 @@
+.form-inner {
+  background-color: rgb(171, 171, 201);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

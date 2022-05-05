@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Login.css";
 
 export default function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
@@ -11,8 +12,8 @@ export default function LoginForm({ Login, error }) {
 
   return (
     <div>
-      <form className="form-general" onSubmit={submitHandler}>
-        <div className="form-inner">
+      <form className="form-inner" onSubmit={submitHandler}>
+        <div className="login-form">
           <h3>Please enter your data</h3>
           {error !== "" ? <div className="error">{error}</div> : ""}
           <div className="form-group">
@@ -49,7 +50,11 @@ export default function LoginForm({ Login, error }) {
               value={details.password}
             />
           </div>
-          <input type="submit" value="Login" />
+          <input
+            style={{ color: "red", background: "lightblue" }}
+            type="submit"
+            value="Login"
+          />
         </div>
       </form>
     </div>

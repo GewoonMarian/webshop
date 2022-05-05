@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { AiFillMessage } from "react-icons/ai";
 import "./About.css";
 function DetailsPage(props) {
   const { onAdd, onRemove } = props;
@@ -80,20 +81,29 @@ function DetailsPage(props) {
               <h4>{product.description}</h4>
             </div>
           </div>
-        </div>
-        <p>:: Leave your review :: {comment.length} ::</p>
-        <ul>
-          {comment.map((c) => (
-            <li>{c}</li>
-          ))}
-        </ul>
 
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button onClick={submitComment}>Leave your comment</button>
+          <p style={{ background: "yellow" }}>
+            <AiFillMessage /> Leave us a review <AiFillMessage />{" "}
+            {comment.length} ::
+          </p>
+          <ul>
+            {comment.map((c) => (
+              <li>{c}</li>
+            ))}
+          </ul>
+
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            style={{ color: "white", background: "green" }}
+            onClick={submitComment}
+          >
+            Leave your comment
+          </button>
+        </div>
       </div>
     );
   } else {
