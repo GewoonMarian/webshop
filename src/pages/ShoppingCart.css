@@ -1,0 +1,10 @@
+.total-container {
+  padding-top: 20px;
+  font-size: 25px;
+  font-family: ‘Open Sans’;
+  font-weight: 200;
+  color: #202020;
+}
+.total {
+  color: rgb(9, 28, 197);
+}

@@ -1,24 +1,34 @@
+import "./ShoppingCardProduct.css";
 export default function ShoppingCardProduct({ item, onRemove }) {
   return (
-    <div>
-      <img
-        src={item.mainImage}
-        style={{ height: "200px", width: "200px" }}
-        alt="prod"
-      />
+    <div className="prod-container">
+      <div className="products">
+        <h3 className="title">{item.title}</h3>
+        <img
+          src={item.mainImage}
+          style={{ height: "200px", width: "200px" }}
+          alt="prod"
+        />
 
-      <h>{item.title}</h>
-      <h3>{item.description}</h3>
+        <h4 className="desc">{item.description}</h4>
 
-      <div>
-        <div>Quantity</div>
-        <div>{item.qty}</div>
-      </div>
-      <div>
-        <div> € {item.price * item.qty}</div>
-
+        <div className="amount">
+          <div>Quantity</div>
+          <div>{item.qty}</div>
+        </div>
         <div>
-          <button onClick={() => onRemove(item)}>Remove</button>
+          <div style={{ color: "green" }}>
+            <strong>Total Price €</strong> {item.price * item.qty}
+          </div>
+
+          <div>
+            <button
+              style={{ color: "white", background: "red" }}
+              onClick={() => onRemove(item)}
+            >
+              Remove
+            </button>
+          </div>
         </div>
       </div>
     </div>

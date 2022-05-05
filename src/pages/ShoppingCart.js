@@ -1,5 +1,6 @@
 import React from "react";
 import ShoppingCardProduct from "../components/ShoppingCardProduct";
+import "./ShoppingCart.css";
 export default function ShoppingCart(props) {
   const { onRemove, setCartItems, cartItems } = props;
   // const [product, setProduct] = useState(null);
@@ -25,22 +26,30 @@ export default function ShoppingCart(props) {
           <div>
             <div>
               <h3>Shopping Cart</h3>
-              <button onClick={() => setCartItems([])}>Remove all</button>
+              <button
+                style={{ color: "white", background: "red" }}
+                onClick={() => setCartItems([])}
+              >
+                <strong>Remove all</strong>
+              </button>
             </div>
             {cartItems.map((item, i) => (
               <ShoppingCardProduct key={i} item={item} onRemove={onRemove} />
             ))}
 
-            <div>
-              <div>
-                <div>
-                  <div>Sub-Total</div>
-                  <div>{totals.totalQty} items</div>
-                </div>
-                <div>€ {totals.totalPrice.toFixed(2)}</div>
+            <div className="total-container">
+              <div className="total">
+                <div>Sub-Total</div>
+                <div>{totals.totalQty} items</div>
               </div>
-              <button>Checkout</button>
+              <div style={{ color: "green" }}>
+                <strong>Total Items Price:</strong>⏩ €
+                {totals.totalPrice.toFixed(2)}
+              </div>
             </div>
+            <button style={{ color: "yellow", background: "green" }}>
+              <strong>Checkout</strong>
+            </button>
           </div>
         </div>
       )}

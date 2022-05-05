@@ -1,0 +1,15 @@
+.fav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.products {
+  padding: 1%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+  height: 85%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 5px 40px 60px #4c0de033;
+}

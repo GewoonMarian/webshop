@@ -15,10 +15,9 @@ function DetailsPage(props) {
           `http://localhost:4000/products/${params.id}`
         );
         const data = response.data;
-        console.log(data);
         setProduct(data);
       } catch (exception) {
-        console.log(exception.message);
+        console.error(exception.message);
       }
     };
     getData();
@@ -38,13 +37,33 @@ function DetailsPage(props) {
           </h3>
         </div>
         <div>
-          <button onClick={() => onAdd(product)}>Add To Cart</button>
-          <button onClick={() => onRemove(product)}>Remove from Cart</button>
+          <button
+            style={{ color: "white", background: "green" }}
+            onClick={() => onAdd(product)}
+          >
+            <strong>Add To Cart</strong>
+          </button>
+          <button
+            style={{ color: "white", background: "red" }}
+            onClick={() => onRemove(product)}
+          >
+            <strong>Remove from Cart</strong>
+          </button>
         </div>
 
         <div>
-          <button onClick={() => onWish(product)}>Add to WishList</button>
-          <button onClick={() => unWish(product)}>Remove from WishList</button>
+          <button
+            style={{ color: "white", background: "green" }}
+            onClick={() => onWish(product)}
+          >
+            <strong>Add to WishList</strong>
+          </button>
+          <button
+            style={{ color: "white", background: "red" }}
+            onClick={() => unWish(product)}
+          >
+            <strong>Remove from WishList</strong>
+          </button>
         </div>
 
         <div className="description">

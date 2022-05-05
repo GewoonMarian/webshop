@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useParams } from "react";
 import axios from "axios";
 import HomeCard from "../components/HomeCard/index";
 

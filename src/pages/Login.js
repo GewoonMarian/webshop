@@ -13,25 +13,23 @@ export default function Login() {
   const [error, setError] = useState("");
 
   const Login = (details) => {
-    console.log(details);
-
     if (
       details.email === adminUser.email &&
       details.password === adminUser.password
     ) {
-      console.log("Welcome, you're logged in!");
+      // console.log("Welcome, you're logged in!");
       setUser({
         name: details.name,
         email: details.email,
       });
     } else {
-      console.log("Details do not match");
+      // console.log("Details do not match");
       setError("Details do not match");
     }
   };
 
   const Logout = () => {
-    console.log("Logout");
+    // console.log("Logout");
     setUser({ name: "", email: "" });
   };
 
