@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductsCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
-import Searchbar from "../components/Searchbar";
+import "./Shop.css";
 
 // ?limit=5&offset=0
 export default function ShopPage() {
@@ -26,25 +26,15 @@ export default function ShopPage() {
   }, [offset]);
 
   return (
-    <div>
-      <div className="card-container">
-        <h3>All Products available for you!</h3>
-      </div>
-      {/* <input
-        type="text"
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      ></input> */}
-      {loading && <div>...loading</div>}
-      <div>
-        {!loading && products.length !== 0 ? (
-          products
-
-            .filter((product) => {
-              if (!product.title) return null;
-              return product.title.toLowerCase().includes(search.toLowerCase());
-            })
-            .map((p) => {
+    <div className="card-cont">
+      <div className="card-shop">
+        <div>
+          <h3>All Products available for you!</h3>
+        </div>
+        {loading && <div>...loading</div>}
+        <div>
+          {!loading && products.length !== 0 ? (
+            products.map((p) => {
               if (!p.title) return null;
               return (
                 <ProductsCard
@@ -58,17 +48,17 @@ export default function ShopPage() {
                 />
               );
             })
-        ) : (
-          <div>No more items</div>
-        )}
-
-        <div>
-          <Pagination
-            offset={offset}
-            setOffset={setOffset}
-            productPerPage={productsPerPage}
-            amountOfProducts={products.length}
-          />
+          ) : (
+            <div>No more items</div>
+          )}
+          <div>
+            <Pagination
+              offset={offset}
+              setOffset={setOffset}
+              productPerPage={productsPerPage}
+              amountOfProducts={products.length}
+            />
+          </div>
         </div>
       </div>
     </div>

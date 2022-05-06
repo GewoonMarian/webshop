@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import ShoppingCart from "./pages/ShoppingCart";
 import { useState } from "react";
 import Signup from "./pages/Signup";
+import ShopProducts from "./pages/ShopProducts";
 function App() {
   // Cart products...ADD and Remove
   const [cartItems, setCartItems] = useState([]);
@@ -94,6 +95,7 @@ function App() {
       <h2>Welcome to the Marloes Shop</h2>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Shop/:id" element={<ShopProducts />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/Shop" element={<Shop onAdd={onAdd} />} />
         <Route

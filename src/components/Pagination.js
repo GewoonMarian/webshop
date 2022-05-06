@@ -9,6 +9,7 @@ const Pagination = ({
   return (
     <div>
       <button
+        style={{ color: "yellow", background: "red" }}
         onClick={() => setOffset(offset - productPerPage)}
         disabled={offset === 0}
       >
@@ -16,6 +17,7 @@ const Pagination = ({
       </button>
 
       <button
+        style={{ color: "red", background: "yellow" }}
         onClick={() => setOffset(offset + productPerPage)}
         disabled={amountOfProducts < 5}
       >
