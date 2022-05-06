@@ -51,6 +51,10 @@ function SignUpForm() {
         email,
         password,
       });
+      setName("");
+      setEmail("");
+      setPassword("");
+      setConfPassword("");
 
       console.log(response.data);
     } catch (e) {
