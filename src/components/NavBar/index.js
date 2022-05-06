@@ -6,6 +6,8 @@ import { GrCart } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
 import { MdFavorite } from "react-icons/md";
 import { ImUserPlus } from "react-icons/im";
+import Searchbar from "../Searchbar";
+
 export default function NavBar() {
   return (
     <div className="navbar-container">
@@ -44,9 +46,10 @@ export default function NavBar() {
             About
           </NavLink>
         </h3>
-        <input type="text" className="search-bar" />
+        {/* <input type="text" className="search-bar" /> */}
+        <Searchbar />
 
-        <BsSearch />
+        {/* <BsSearch /> */}
       </div>
       <div>
         <h1>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function SignUpForm() {
   const [name, setName] = useState("");
@@ -34,21 +35,31 @@ function SignUpForm() {
   };
   // below function will be called when user
   // click on submit button .
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (password != confPassword) {
       console.log("password Not Match");
-    } else {
-      console.log(
-        'A form was submitted with Name :"' +
-          name +
-          '" ,Age :"' +
-          age +
-          '" and Email :"' +
-          email +
-          '"'
-      );
+      return;
     }
-    e.preventDefault();
+
+    console.log("submitting", { name, email, password });
+
+    try {
+      const response = await axios.post("http://localhost:4000/users/signup", {
+        name,
+        email,
+        password,
+      });
+      setName("");
+      setEmail("");
+      setPassword("");
+      setConfPassword("");
+
+      console.log(response.data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -102,17 +113,6 @@ function SignUpForm() {
             required
             onChange={(e) => {
               handleConfPasswordChange(e);
-            }}
-          />
-          <br />
-          <label>Age:</label>
-          <br />
-          <input
-            type="text"
-            value={age}
-            required
-            onChange={(e) => {
-              handleAgeChange(e);
             }}
           />
           <br />

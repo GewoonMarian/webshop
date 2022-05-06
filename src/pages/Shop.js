@@ -10,6 +10,7 @@ export default function ShopPage() {
   const [productsPerPage, setProductsPerPage] = useState(5);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
 
   async function getProducts() {
     setLoading(true);
